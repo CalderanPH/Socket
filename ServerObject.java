@@ -7,7 +7,7 @@ public class ServerObject {
     private  static ServerSocket server;
 
     private static DataInputStream input;
-    private static DataOutputStream exit;
+    private static DataOutputStream out;
 
 
     public static void main(String[] args) {
@@ -16,18 +16,18 @@ public class ServerObject {
             socket = server.accept();
 
             input = new DataInputStream(socket.getInputStream());
-            exit = new DataOutputStream(socket.getOutputStream());
+            out = new DataOutputStream(socket.getOutputStream());
 
-            int valor = input.readInt();
-            System.out.println(valor);
+            int value = input.readInt();
+            System.out.println(value);
 
-            boolean resultado;
-            if (valor > 0)
-                resultado = true;
+            boolean result;
+            if (value > 0)
+                result = true;
             else
-                resultado = false;
+                result = false;
 
-            exit.writeUTF(String.valueOf(resultado));
+            out.writeUTF(String.valueOf(result));
             socket.close();
 
 
