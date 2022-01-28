@@ -7,7 +7,7 @@ public class ClientObject {
 
     private static Socket socket;
     private static DataInputStream input;
-    private static DataOutputStream exit;
+    private static DataOutputStream out;
 
 
     public static void main(String[] args) {
@@ -16,13 +16,13 @@ public class ClientObject {
             socket = new Socket("127.0.0.1", 5555);
 
             input = new DataInputStream(socket.getInputStream());
-            exit = new DataOutputStream(socket.getOutputStream());
+            out = new DataOutputStream(socket.getOutputStream());
 
             BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Digite seu CPF: ");
             int valor = Integer.parseInt(buf.readLine());
 
-            exit.writeInt(valor);
+            out.writeInt(valor);
 
             String resultado = input.readUTF();
 
