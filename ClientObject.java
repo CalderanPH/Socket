@@ -20,13 +20,13 @@ public class ClientObject {
 
             BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Digite seu CPF: ");
-            int valor = Integer.parseInt(buf.readLine());
+            int value = Integer.parseInt(buf.readLine());
 
             out.writeInt(valor);
 
-            String resultado = input.readUTF();
+            String result = input.readUTF();
 
-            System.out.println(resultado);
+            System.out.println(result);
 
             socket.close();
         }catch (Exception e){
